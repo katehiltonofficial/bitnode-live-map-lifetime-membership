@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bitnode Admin</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="admin-wrap nav">
+      <div class="brand"><span class="brand-mark">B</span> Bitnode Admin</div>
+      <div class="nav-note">Private dashboard</div>
+    </div>
+  </header>
+
+  <main class="admin-wrap">
+    <section id="loginView" class="card login-card">
+      <div class="eyebrow">Restricted Access</div>
+      <h2>Admin sign in</h2>
+      <p class="muted">Enter your admin password to continue.</p>
+      <div class="field">
+        <label for="adminPassword">Password</label>
+        <input id="adminPassword" type="password" placeholder="Admin password" />
+      </div>
+      <button class="btn btn-primary btn-block" id="loginBtn">Open Dashboard</button>
+      <p class="footer-note">Default password: <strong>Bitnode2026!</strong><br>Change it inside <code>js/admin.js</code>.</p>
+    </section>
+
+    <section id="dashboardView" class="hidden">
+      <div class="dashboard-header">
+        <div>
+          <div class="eyebrow">Administration</div>
+          <h1>Membership Dashboard</h1>
+          <p class="muted">Review temporary browser-stored applications.</p>
+        </div>
+        <button class="btn btn-secondary" id="logoutBtn">Log Out</button>
+      </div>
+
+      <div class="stats">
+        <div class="card stat"><span class="muted">Total Applications</span><strong id="totalCount">0</strong></div>
+        <div class="card stat"><span class="muted">Pending</span><strong id="pendingCount">0</strong></div>
+        <div class="card stat"><span class="muted">Approved</span><strong id="approvedCount">0</strong></div>
+      </div>
+
+      <div class="card table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th><th>Email</th><th>Plan</th><th>Amount</th>
+              <th>Screenshot</th><th>Status</th><th>Login</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="membersTable"></tbody>
+        </table>
+      </div>
+      <p class="footer-note">Admin password protection in a static HTML site is only a visual barrier, not strong security.</p>
+    </section>
+  </main>
+
+  <div id="loginModal" class="modal hidden">
+    <div class="card modal-panel">
+      <h2>Assign Login Details</h2>
+      <div class="field">
+        <label for="assignedUsername">Username</label>
+        <input id="assignedUsername" type="text" placeholder="Create username" />
+      </div>
+      <div class="field">
+        <label for="assignedPassword">Temporary Password</label>
+        <input id="assignedPassword" type="text" placeholder="Create temporary password" />
+      </div>
+      <div class="actions">
+        <button class="btn btn-secondary" id="cancelLoginModal">Cancel</button>
+        <button class="btn btn-primary" id="saveLoginBtn">Save Login</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="imageModal" class="modal hidden">
+    <div class="card modal-panel">
+      <h2>Payment Screenshot</h2>
+      <img id="imagePreview" class="preview" alt="Payment screenshot" />
+      <div class="actions" style="margin-top:14px">
+        <button class="btn btn-secondary" id="closeImageModal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
