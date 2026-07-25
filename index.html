@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bitnode Membership</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell nav">
+      <div class="brand"><span class="brand-mark">B</span> Bitnode</div>
+      <div class="nav-note">Secure membership application</div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Membership Portal</div>
+      <h1>Join the Bitnode community</h1>
+      <p>Select a membership, complete your USDT payment, and submit your payment screenshot for verification.</p>
+    </section>
+
+    <section class="card form-card">
+      <div class="progress"><span class="active"></span><span id="progress2"></span></div>
+
+      <form id="membershipForm">
+        <div id="stepOne">
+          <div class="grid-2">
+            <div class="field">
+              <label for="fullName">Full Name</label>
+              <input id="fullName" type="text" placeholder="Your full name" required />
+            </div>
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input id="email" type="email" placeholder="name@example.com" required />
+            </div>
+          </div>
+
+          <label>Select Membership</label>
+          <div class="plans">
+            <label class="plan">
+              <input type="radio" name="membership" value="199" required />
+              <strong>Crypto Learn &amp; Earn</strong>
+              <div class="price">199 USDT</div>
+              <div class="muted">Learning-focused membership access.</div>
+            </label>
+            <label class="plan">
+              <input type="radio" name="membership" value="999" required />
+              <strong>Standard Membership</strong>
+              <div class="price">999 USDT</div>
+              <div class="muted">Full standard membership access.</div>
+            </label>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-block" id="continueBtn">Continue to Payment</button>
+        </div>
+
+        <div id="stepTwo" class="hidden">
+          <div class="payment-box">
+            <div class="payment-row">
+              <div class="payment-label">Amount to Send</div>
+              <div class="payment-value" id="selectedAmount"></div>
+            </div>
+            <div class="payment-row">
+              <div class="payment-label">Network</div>
+              <div class="payment-value">Binance Smart Chain (BEP20)</div>
+            </div>
+            <div class="payment-row">
+              <div class="payment-label">USDT Wallet Address</div>
+              <div class="copy-row">
+                <input id="walletAddress" type="text" value="0xb05bc2b30377d7a9b68ab2459922fa52edc766f5" readonly />
+                <button type="button" class="btn btn-secondary" id="copyBtn">Copy</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="notice">
+            Send only USDT through Binance Smart Chain (BEP20). Payments sent using another network may not be recoverable.
+          </div>
+
+          <div class="field">
+            <label for="paymentScreenshot">Payment Screenshot</label>
+            <input id="paymentScreenshot" type="file" accept="image/png,image/jpeg,image/webp" required />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Submit Membership</button>
+        </div>
+      </form>
+
+      <div id="successMessage" class="success hidden">
+        <h2>Application submitted</h2>
+        <p>Your payment is awaiting verification. After approval, the administrator will create your username and temporary password and send the login details to your registered email address.</p>
+      </div>
+
+      <p class="footer-note">This demo stores information temporarily in the current browser only.</p>
+    </section>
+  </main>
+  <script src="js/app.js"></script>
+</body>
+</html>
